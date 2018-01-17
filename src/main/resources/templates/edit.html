@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Title</title>
+
+  <link rel="stylesheet" th:href="@{/style.css}"/>
+  <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <script src="webjars/jquery/1.11.1/jquery.min.js"></script>
+  <script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+  <div class="form-group">
+    <form action="#" th:action="@{/edit/} + ${newTodo.id}" th:object="${newTodo}" method="post">
+
+      <!--<input type="hidden" th:field="*{id}"/>-->
+      <label for="inputsm">Todo:</label>
+      <input type="text" name="title" th:field="*{title}" class="form-control input-sm"
+             id="inputsm"/>
+
+      <input type="submit" value="Edit" class="btn btn-primary"/>
+
+
+      <div class="checkbox">
+        <input type="checkbox" th:field="*{isurgent}"/><label>isurgent</label>
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" th:field="*{isdone}"/><label>isdone</label>
+      </div>
+
+
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
